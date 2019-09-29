@@ -1,24 +1,48 @@
 {% extends 'app/base.html' %}
+{% load static %}
 
 {% block titulo %}
-    Home
+    Home - CoisasEmprestadas
 {% endblock titulo %}
 
+{% block navbar %}
+<a href="#" class="nav-item nav-link active">Home</a> 
+<a href="#" class="nav-item nav-link">Profile</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Inbox</a>
+                        <a href="#" class="dropdown-item">Sent</a>
+                        <a href="#" class="dropdown-item">Drafts</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="navbar-nav">
+                    <a href="{% url 'login'%}" class="nav-item nav-link">Login</a>
+                    <a href="{% url 'logout'%}" class="nav-item nav-link">Logout</a>
+                </div>
+{% endblock navbar %}
+
+
 {% block conteudo %}
-<div class="container">
-        <h2 class="text-uppercase text-center text-white">MENSAGEM</h2>
-        <div class="row">
-            <div class="col-lg-4 ml-auto">
-                <p class="lead">Mas a sabedoria que vem do alto é, primeiramente, pura, depois, pacífica, moderada,
-                    tratável, cheia de misericórdia e de bons frutos, sem parcialidade e sem hipocrisia. <span
-                            style="text-decoration: underline;">Tiago 3:17</span><strong><span
-                            style="text-decoration: underline;">&nbsp;</span></strong></p>
-            </div>
-            <div class="col-lg-4 mr-auto">
-                <p class="lead">O que adquire entendimento ama a sua alma o que conserva a inteligência achará o
-                    bem. Provérbios 19:8</p>
-            </div>
-        </div>
-        <div class="text-center mt-4"></div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Tenha tudo sobe controle!!</h5>
+        <p class="card-text">Mantenha suas CoisasEmprestadas sobe controle com nosso MiniSistema</p>
+        
+      </div>
     </div>
-{% endblock conteudo
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">O sistema que te Lembra!!!</h5>
+        <p class="card-text">Sistema para você não esquecer para quem emprestou cada coisa.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock conteudo %}

@@ -8,6 +8,8 @@ urlpatterns = [
 
     path('logout_usuario', deslogar_usuario , name='logout' ),
 
-    path('cadastro_usuario', cadastrar_usuario , name='cadastro' ),
+    path('cadastro_usuario', cadastrar_usuario , name='cadastrar' ),
+
+    path('home', home, name='home'),
 
 ]

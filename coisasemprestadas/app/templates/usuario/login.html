@@ -1,28 +1,37 @@
 {% extends 'app/base.html' %}
 {% load meus_filtros %}
 
-{% block conteudo %}
+{% block titulo %}
+    Login - CoisasEmprestadas
+{% endblock titulo %}
 
-<form class="border border-primary rounded-lg" method="post">
+{% block conteudo %}
+<div class="row register-form">
+    <div class="col-md-8 offset-md-2">
+<form class=" border-dark register-form" method="post">
     {% csrf_token %}
     {% for message in messages %}
         <div class="alert alert-danger">
             {{message}}
         </div>
     {% endfor %}
-    <div class="form-group">
+    <div class="form-row form-group">
         <label>Nome de usuário: </label>
         {{form_login.username|addclass:'form-control'}}
     </div>
 
-    <div class="form-group">
+    <div class="form-row form-group">
         <label>Senha: </label>
         {{form_login.password|addclass:'form-control'}}
     </div>
 
-    <div class="form-group">
-        <input type="submit" value="Entrar" class="btn btn-primary">
+    <div class="form-row form-group">
+        <input type="submit" value="Entrar" class="btn btn-outline-dark">
+    </div>
+    <div class="form-row form-group">
+        <a class="btn btn-outline-danger" href="{% url 'cadastrar' %}" role="button">Cadastrar_Usuario</a>
     </div>
 </form>
-
+</div>
+</div>
 {% endblock conteudo %}

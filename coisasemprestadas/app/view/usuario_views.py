@@ -4,12 +4,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 
+
 def cadastrar_usuario(request):
     if request.method == "POST":
         form_usuario = UserCreationForm(request.POST)
         if form_usuario.is_valid():
             form_usuario.save()
-            return redirect('home')
+            return redirect('login')
     else:
         form_usuario = UserCreationForm()
     return render(request, 'usuario/form.html', {"form_usuario": form_usuario})
@@ -24,11 +25,11 @@ def logar_usuario(request):
             return redirect('home')
         else:
             messages.error(request, 'As credencias do usuário estão incorretas')
-            return redirect('logar_usuario')
+            return redirect('login')
     else:
         form_login = AuthenticationForm()
     return render(request, 'usuario/login.html', {"form_login": form_login})
 
 def deslogar_usuario(request):
     logout(request)
-    return redirect('logar_usuario')
+    return redirect('login')

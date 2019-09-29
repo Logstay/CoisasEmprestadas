@@ -22,50 +22,43 @@
 
 </head>
 <nav class="navbar navbar-light navbar-expand-lg text-light">
-        <a href="#" class="navbar-brand">CoisasEmprestadas</a>
+        <a href="{% url 'login' %}" class="navbar-brand">CoisasEmprestadas</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
     
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
-                    <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item">Inbox</a>
-                        <a href="#" class="dropdown-item">Sent</a>
-                        <a href="#" class="dropdown-item">Drafts</a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-nav">
-                <a href="{% url 'login'%}" class="nav-item nav-link">Login</a>
-                <a href="{% url 'logout'%}" class="nav-item nav-link">Logout</a>
-
+                {% block navbar %}
+                
+               
+                
+                {% endblock navbar %}
+           
             </div>
         </div>
     </nav>
-<body id="page-top" class="bg-info">
+<body id="page-top" class="bg-light">
    
 
-        
-<header class="masthead text-white text-center ">
-        <div class="promo-background">
-            <img src="{% static "img/screen.jpg" %}" class="img-fluid" style="content: normal">
+<header class="masthead img-thumbnail" style="background-image:url('static/img/coisas.jpg'); background-repeat:no-repeat;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                </div>
+            </div>
         </div>
-    
-    <section class="text-white mb-0" >
-
+    </header>
+    <section class="mb-0">
+       
         {% block conteudo %}
 
 
         {% endblock conteudo %}
-
     </section>
-</header>
-<div class="copyright py-4 text-center text-white">
+
+<div class="copyright py-4 text-center bg-light">
     <div class="container"><small>Copyright ©&nbsp;KaiqueMoreira 2019</small></div>
 </div>
 <div class="d-lg-none scroll-to-top position-fixed rounded"><a
