@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('app.urls')),
     #parte administrativa da interface
     path('admin/', admin.site.urls),
+
     
 ]
