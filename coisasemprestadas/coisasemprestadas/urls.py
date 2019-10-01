@@ -19,9 +19,10 @@ from django.urls import path, include
 
 urlpatterns = [
     # inclui as URLS do 'app'
-    path('app', include('app.urls')),
+    path('', include('app.urls')),
     #parte administrativa da interface
     path('admin/', admin.site.urls),
+
 
     
 ]
