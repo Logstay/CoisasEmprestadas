@@ -1,28 +1,34 @@
 from django.db import models
 # chamado de autenticação builtin Django
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 # class a ser usada no ORM que será criada no BancodeDados
-class Coisas_usr(models.Model):
+class Coisa(models.Model):
+
+    class Meta:
+        ordering = ('item',)
+        verbose_name = 'coisa'
+        verbose_name_plural = 'coisa'
 
     #Obj a ser emprestado
-    item_usr = models.CharField(
+    item = models.CharField(
         null=False,
         max_length=100,
         blank=False,
         )
     #data em que o objeti será emprestado
-    data_emprestimo_usr = models.DateField(
+    data_emprestimo = models.DateField(
         null=False,
         blank=False,
     )
     #data em que o emprestimo será devolvido
-    data_devolucao_usr = models.DateField(
-         null=False,
+    data_devolucao = models.DateField(
+        null=False,
         blank=False,
     )
     # numero de contado do amigo.
-    contato_amigo_usr = models.CharField(
+    contato_amigo = models.CharField(
         max_length=11,
         null=False,
         blank=False
@@ -35,5 +41,7 @@ class Coisas_usr(models.Model):
         on_delete=models.CASCADE,
     )
 
-    objetos = models.Manager()
 
+
+    def __str__(self):
+        return self.item

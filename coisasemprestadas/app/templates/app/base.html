@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static  %}
+{% load widget_tweaks  %}
+
 
 <html>
 
@@ -17,23 +19,21 @@
     <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css' %} ">
     <link rel="stylesheet" href="{% static 'css/Pretty-Registration-Form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/-Login-form-Page-BS4-.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/-Login-form-Page-BS4-.css' %}">
     <link rel="stylesheet" href="{% static 'css/Form-Select---Full-Date---Month-Day-Year.css' %} ">
 
 </head>
 <nav class="navbar navbar-light navbar-expand-lg text-light">
-        <a href="{% url 'login' %}" class="navbar-brand">CoisasEmprestadas</a>
+        <a href="{% url 'home'%}" class="navbar-brand">CoisasEmprestadas</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
     
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
-                {% block navbar %}
-                
-               
-                
-                {% endblock navbar %}
+                    {% block navbar %}
+                    
+                    {% endblock navbar %}
            
             </div>
         </div>
@@ -69,7 +69,5 @@
 <script src="{% static 'js/smart-forms.min.js' %} "></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="{% static 'js/freelancer.js' %} "></script>
-<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </body>
-
 </html>

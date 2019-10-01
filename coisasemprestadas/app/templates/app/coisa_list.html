@@ -1,9 +1,11 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% load meus_filtros %}
 
 {% block titulo %}
-    Home - CoisasEmprestadas
+    Emprestimo - CoisasEmprestadas
 {% endblock titulo %}
+
 {% block navbar %}
 <a href="{% url 'home'%}" class="nav-item nav-link active">Home</a> 
                                     <div class="nav-item dropdown">
@@ -23,24 +25,36 @@
 
 {% endblock navbar%}
 {% block conteudo %}
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Tenha tudo sobe controle!!</h5>
-        <p class="card-text">Mantenha suas CoisasEmprestadas sobe controle com nosso MiniSistema</p>
-        
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">O sistema que te Lembra!!!</h5>
-        <p class="card-text">Sistema para você não esquecer para quem emprestou cada coisa.</p>
-        
-      </div>
-    </div>
-  </div>
-</div>
+<div class="col-md-8 offset-md-2">
+    <table class="table col-md"  cellspacing="0" >
+    <thead>
+    <tr>
+
+        <th>Nome Coisa:</th>
+        <th>Data de Emprestimo</th>
+        <th>Data Devolução</th>
+        <th>Contato:</th>
+       
+    
+
+    </tr>
+
+    </thead>
+    <tbody >
+    {% for i in object_list %}
+        <tr>
+            <td> {{ i.item }} </a></td>
+            <td> {{ i.data_emprestimo  }} </td>
+            <td> {{ i.data_devolucao  }} </td>
+            <td> {{ i.contato_amigo | phone2numeric }}</td>
+            
+            
+
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+   </div>
 {% endblock conteudo %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'coisasemprestadas',
     'app',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_URL = 'logar_usuario'
+
+
 
 
 # Static files (CSS, JavaScript, Images)
