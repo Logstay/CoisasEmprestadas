@@ -1,0 +1,1 @@
+web: gunicorn coisasemprestadas.wsgi
