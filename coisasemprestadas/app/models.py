@@ -5,7 +5,10 @@ from django.urls import reverse_lazy
 
 # class a ser usada no ORM que será criada no BancodeDados
 class Coisa(models.Model):
-
+    RETORNO_CHOICES = [
+        ('Devolvido', 'Devolvido'),
+        ('Pendente', 'Pendente'),
+    ]
     class Meta:
         ordering = ('item',)
         verbose_name = 'coisa'
@@ -41,7 +44,11 @@ class Coisa(models.Model):
         on_delete=models.CASCADE,
     )
 
-
+    retorno = models.CharField(
+        max_length=10,
+        choices=RETORNO_CHOICES,
+        null=False,
+        blank=False)
 
     def __str__(self):
         return self.item

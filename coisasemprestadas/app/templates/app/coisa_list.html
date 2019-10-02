@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% load meus_filtros %}
+{% load widget_tweaks %}
 
 {% block titulo %}
     Emprestimo - CoisasEmprestadas
@@ -26,6 +26,9 @@
 {% endblock navbar%}
 {% block conteudo %}
 <div class="col-md-8 offset-md-2">
+    <li class="text-success">Se Devolução estiver <strong> Verde</strong> sua 'Coisa' ja foi devolvida.</li>
+    <li class="text-warning">Se Devolução estiver <strong> Amarelo</strong> sua 'Coisa' ainda está no prazo.</li>
+    <li class="text-danger">Se Devolução estiver <strong> Vermelho</strong> sua 'Coisa' Não foi devolvida no prazo..</li>
     <table class="table col-md"  cellspacing="0" >
     <thead>
     <tr>
@@ -33,7 +36,8 @@
         <th>Nome Coisa:</th>
         <th>Data de Emprestimo</th>
         <th>Data Devolução</th>
-        <th>Contato:</th>
+        <th>Contato</th>
+        <th>Devolução</th>
        
     
 
@@ -43,12 +47,24 @@
     <tbody >
     {% for i in object_list %}
         <tr>
-            <td> {{ i.item }} </a></td>
+
+            <td><a href="{% url 'atualizar_coisa' i.pk%}"> {{ i.item }} </a> </td>
             <td> {{ i.data_emprestimo  }} </td>
-            <td> {{ i.data_devolucao  }} </td>
+
+<!--                condicional  -->
+            <td > {{ i.data_devolucao   }} </td>
             <td> {{ i.contato_amigo | phone2numeric }}</td>
+            {% if i.retorno == "Devolvido" %}
+            <td class="bg-success"> {{ i.retorno   }} </td>
+            {% elif i.retorno == "Pendente" %}
+            <td class="bg-danger "> {{ i.retorno  }} </td>
+            {% elif i.retorno == "" %}
+            <td class="bg-warning "> {{ i.retorno  }} </td>
+            {% endif %}
+
+
             
-            
+
 
         </tr>
     {% endfor %}

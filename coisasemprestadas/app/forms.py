@@ -14,4 +14,5 @@ class CoisasForm(forms.ModelForm):
             'data_devolucao', 
             'contato_amigo', 
             'usuario',
+            'retorno'
             ]

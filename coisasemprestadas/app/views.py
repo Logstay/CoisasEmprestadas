@@ -10,19 +10,19 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.generic.list import ListView
 from .models import Coisa
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 
-class HomeTemplateView(TemplateView):
+class HomeTemplateView(LoginRequiredMixin, TemplateView):
     template_name = "app/home.html"
 
 
-''' parte ususario da view '''
 
-
+# Parte de cadastro,login, logout do Usuario cadastrado
+# TODO:usar CBV para processo de auth do usuario.
 def cadastrar_usuario(request):
     if request.method == "POST":
         form_usuario = UserCreationForm(request.POST)
@@ -42,7 +42,7 @@ def logar_usuario(request):
             login(request, usuario)
             return redirect('home')
         else:
-            messages.error(request, 'As credencias do usuário estão incorretas')
+            messages.error(request, 'As credencias do usuário estão incorretas ou usuário não cadastrado')
             return redirect('login_usuario')
     else:
         form_login = AuthenticationForm()
@@ -68,4 +68,14 @@ class CoisaCreateView(CreateView):
             'data_devolucao', 
             'contato_amigo', 
             ]
-    
+
+class CoisaUpdateView(UpdateView):
+    model = Coisa
+    fields = [
+            'item',
+            'data_emprestimo',
+            'data_devolucao',
+            'contato_amigo',
+            'retorno'
+            ]
+    template_name_suffix = '_update_form'

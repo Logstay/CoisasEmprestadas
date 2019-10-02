@@ -13,8 +13,8 @@ urlpatterns = [
 
     path('cadastrar_coisa', CoisaCreateView.as_view(model=Coisa, success_url="/listar"), name='cadastrar_coisa'),
 
-    # path('listar/<int:id>', listar_coisas_id, name='listar_coisa_id'),
-
     path('listar', CoisasListView.as_view(), name='listar_coisa'),
+
+    path('atualizar_coisa/<int:pk>/', CoisaUpdateView.as_view(model=Coisa, success_url="/listar"), name='atualizar_coisa'),
 
 ]

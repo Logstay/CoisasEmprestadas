@@ -5,12 +5,12 @@ from django.db import connection
 
 # returna a lista de objetos cadastrados no BD
 def listar_coisas():
-    coisas = Coisa.objetos.all()
+    coisas = Coisa.objects.all()
     return coisas
 
 # retorna lista de objetos especificados por id
 def listar_coisas_id(id):
-    coisas = Coisa.objetos.get(id=id)
+    coisas = Coisa.objects.get(id=id)
     return coisas
 
 # remove diretamente o objeto do BD
@@ -19,12 +19,13 @@ def remover_coisas(coisas):
 
 # acessa o metodo create com os argumentos espeficos para criação do objeto no BD
 def cadastrar_coisas(coisas):
-    Coisa.objetos.create(
+    Coisa.objects.create(
         item=coisas.item, 
         data_emprestimo=coisas.data_emprestimo, 
         data_devolucao=coisas.data_devolucao, 
         contato_amigo=coisas.contato_amigo,
-        usuario=coisas.usuario
+        usuario=coisas.usuario,
+        retorno=coisas.retorno
         )
 
 # entra com o objeto já criado e com o 2 argumento substitui-o
@@ -33,5 +34,6 @@ def editar_coisa(coisas, nova_coisas):
     coisas.data_emprestimo = nova_coisas.data_emprestimo
     coisas.data_devolucao = nova_coisas.data_devolucao
     coisas.contato_amigo = nova_coisas.contato_amigo
+    coisas.retorno=nova_coisas.retorno
     coisas.usuario = nova_coisas.usuario
     coisas.save(force_update=True)
