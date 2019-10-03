@@ -16,11 +16,7 @@
                                         </div>
                                     </div>
                                 </div> 
-                                <div class="navbar-nav">
-                                        <a href="{% url 'login_usuario'%}" class="nav-item nav-link">Login</a>
-                                        <a href="{% url 'logout_usuario'%}" class="nav-item nav-link">Logout</a>
-                                        <a href="{% url 'cadastrar'%}" class="nav-item nav-link">Cadastrar_Usuario</a>
-                                    </div>
+
 
 
 {% endblock navbar%}
@@ -45,25 +41,28 @@
 
     </thead>
     <tbody >
-    {% for i in object_list %}
+    {% for i in coisas %}
         <tr>
 
-            <td><a href="{% url 'atualizar_coisa' i.pk%}"> {{ i.item }} </a> </td>
+            <td><a href="{% url 'atualizar_coisa' i.pk %}"> {{ i.item }} </a> </td>
             <td> {{ i.data_emprestimo  }} </td>
-
-<!--                condicional  -->
             <td > {{ i.data_devolucao   }} </td>
             <td> {{ i.contato_amigo | phone2numeric }}</td>
+
+        <!--                condicional  -->
             {% if i.retorno == "Devolvido" %}
+
             <td class="bg-success"> {{ i.retorno   }} </td>
+
             {% elif i.retorno == "Pendente" %}
+
             <td class="bg-danger "> {{ i.retorno  }} </td>
+
             {% elif i.retorno == "" %}
-            <td class="bg-warning "> {{ i.retorno  }} </td>
+
+            <td class="bg-warning "> No Prazo </td>
             {% endif %}
 
-
-            
 
 
         </tr>

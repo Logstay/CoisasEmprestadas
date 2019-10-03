@@ -1,3 +1,4 @@
 from django.test import TestCase
 
-# Create your tests here.
+
+# FIXME: LEMBRAR DE APRENDER/IMPLEMENTAR TESTESCASES E DEMAIS TESTES NO PROXIMO E OUTRO PROJETO

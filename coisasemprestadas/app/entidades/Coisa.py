@@ -1,12 +1,11 @@
-class Coisa():
-    def __init__(self,item, data_emprestimo, data_devolucao, contato_amigo, usuario, retorno):
+class Coisa:
+    def __init__(self, item, data_emprestimo, data_devolucao, contato_amigo, usuario, retorno):
         self._item = item
         self._data_emprestimo = data_emprestimo
         self._data_devolucao = data_devolucao
         self._contato_amigo = contato_amigo
         self._usuario = usuario
         self.retorno = retorno
-       
 
     @property
     def item(self):

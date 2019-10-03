@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('data_devolucao', models.DateField()),
                 ('contato_amigo', models.CharField(max_length=11)),
                 ('retorno', models.CharField(choices=[('D', 'Devolvido'), ('N', 'Não-Devolvivo')], max_length=1)),
-                ('usuario', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('registration', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'verbose_name': 'coisa',

@@ -1,13 +1,14 @@
 from django.urls import path
 from .views import *
 
+''' URLS de chamadas do django principal está contido coisasemprestadas.urls '''
 urlpatterns = [
-    
-    path('', logar_usuario , name='login_usuario' ),
+    # string vazia para redirecionamento principal
+    path('', logar_usuario, name='login_usuario'),
 
-    path('logout_usuario', deslogar_usuario , name='logout_usuario' ),
+    path('logout_usuario', deslogar_usuario, name='logout_usuario'),
 
-    path('cadastro_usuario', cadastrar_usuario , name='cadastrar' ),
+    path('cadastro_usuario', cadastrar_usuario, name='cadastrar'),
 
     path('home', HomeTemplateView.as_view(), name='home'),
 
@@ -15,6 +16,9 @@ urlpatterns = [
 
     path('listar', CoisasListView.as_view(), name='listar_coisa'),
 
-    path('atualizar_coisa/<int:pk>/', CoisaUpdateView.as_view(model=Coisa, success_url="/listar"), name='atualizar_coisa'),
+    path('listar/<int:id>', listar_coisas_id, name='listar_coisa_id'),
+
+    path('atualizar_coisa/<int:pk>/', CoisaUpdateView.as_view(model=Coisa, success_url="/listar"),
+         name='atualizar_coisa'),
 
 ]

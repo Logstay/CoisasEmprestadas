@@ -20,9 +20,11 @@ from django.urls import path, include
 urlpatterns = [
     # inclui as URLS do 'app'
     path('', include('app.urls')),
-    #parte administrativa da interface
+
+    # parte administrativa da interface
     path('admin/', admin.site.urls),
 
+    # parte da chamada de auth do usuario
+    path('', include('django.contrib.auth.urls')),
 
-    
 ]

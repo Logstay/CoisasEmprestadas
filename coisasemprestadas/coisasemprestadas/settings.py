@@ -20,6 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+# TODO: usar decople no proximo outro projeto lembrar de guardar bem a SECRET_KEY
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2h)-k#3wpi!ekzdsdirkd(l%%=k#l=pi-2=b@h&mg%!7r#^gqv'
 
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'coisasemprestadas.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+# FIXME : LEMBRAR DE ENCAPSULAR DADOS DO BANCO NO OUTRO PROJETO
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -121,6 +122,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'login_usuario'
 
 
 

@@ -3,29 +3,31 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
+
 # class a ser usada no ORM que será criada no BancodeDados
 class Coisa(models.Model):
     RETORNO_CHOICES = [
         ('Devolvido', 'Devolvido'),
         ('Pendente', 'Pendente'),
     ]
+
     class Meta:
         ordering = ('item',)
         verbose_name = 'coisa'
         verbose_name_plural = 'coisa'
 
-    #Obj a ser emprestado
+    # Obj a ser emprestado
     item = models.CharField(
         null=False,
         max_length=100,
         blank=False,
-        )
-    #data em que o objeti será emprestado
+    )
+    # data em que o objeti será emprestado
     data_emprestimo = models.DateField(
         null=False,
         blank=False,
     )
-    #data em que o emprestimo será devolvido
+    # data em que o emprestimo será devolvido
     data_devolucao = models.DateField(
         null=False,
         blank=False,
@@ -36,8 +38,8 @@ class Coisa(models.Model):
         null=False,
         blank=False
     )
-    ''' chamada do usuario para autenticação '''
-    # usuario ligado ao emprestimo tipo 1-N
+    ''' chamada do registration para autenticação '''
+    # registration ligado ao emprestimo tipo 1-N
     usuario = models.ForeignKey(
         User,
         null=True,

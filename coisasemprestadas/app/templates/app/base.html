@@ -24,7 +24,7 @@
 
 </head>
 <nav class="navbar navbar-light navbar-expand-lg text-light">
-        <a href="{% url 'home'%}" class="navbar-brand">CoisasEmprestadas</a>
+        <a href="{% url 'home' %}" class="navbar-brand">CoisasEmprestadas</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,9 +32,14 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav">
                     {% block navbar %}
-                    
+
                     {% endblock navbar %}
-           
+                    {% if user.is_authenticated %}
+                     <div class="navbar-nav">
+                                        <a href="{% url 'login_usuario'%}" class="nav-item nav-link">Login</a>
+                                        <a href="{% url 'logout_usuario'%}" class="nav-item nav-link">Logout</a>
+                                    </div>
+                    {% endif %}
             </div>
         </div>
     </nav>

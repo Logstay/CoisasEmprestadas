@@ -1,6 +1,6 @@
 {% extends 'app/base.html' %}
-{% load meus_filtros %}
 
+{% load widget_tweaks %}
 {% block conteudo %}
 <div class="row register-form">
     <div class="col-md-8 offset-md-2">
@@ -10,19 +10,19 @@
     <div class="form-row form-group">
         <label  class="col-form-label">Nome de usuário: </label>
         {{ form_usuario.username.errors }}
-        {{form_usuario.username|addclass:'form-control'}}
+        {{form_usuario.username}}
     </div>
 
     <div class="form-row form-group">
         <label  class="col-form-label">Senha: </label>
         {{ form_usuario.password1.errors }}
-        {{form_usuario.password1|addclass:'form-control'}}
+        {{form_usuario.password1}}
     </div>
 
     <div class="form-row form-group">
         <label  class="col-form-label">Confirmação de senha: </label>
         {{ form_usuario.password2.errors }}
-        {{form_usuario.password2|addclass:'form-control'}}
+        {{form_usuario.password2}}
     </div>
 
     <div class="form-row form-group">
