@@ -89,6 +89,7 @@ class CoisaCreateView(LoginRequiredMixin, CreateView):
         coisa = form.save(commit=False)
         coisa.usuario = self.request.user
         coisa.save()
+
         return super().form_valid(form)
 
 
