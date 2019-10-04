@@ -6,12 +6,12 @@ from django.db import connection
 
 # returna a lista de objetos cadastrados no BD
 def listar_coisas(usuario):
-    return Coisa.objects.filter(usuario=usuario).all()
+    return Coisa.objetos.filter(usuario=usuario).all()
 
 
 # retorna lista de objetos especificados por id
 def listar_coisas_id(id):
-    return Coisa.objects.get(id=id)
+    return Coisa.objetos.get(id=id)
 
 
 # remove diretamente o objeto do BD
@@ -21,7 +21,7 @@ def remover_coisas(coisas):
 
 # acessa o metodo create com os argumentos espeficos para criação do objeto no BD
 def cadastrar_coisas(coisas):
-    Coisa.objects.create(
+    Coisa.objetos.create(
         item=coisas.item,
         data_emprestimo=coisas.data_emprestimo,
         data_devolucao=coisas.data_devolucao,

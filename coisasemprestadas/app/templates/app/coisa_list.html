@@ -29,7 +29,7 @@
     <thead>
     <tr>
 
-        <th>Nome Coisa:</th>
+        <th>Nome</th>
         <th>Data de Emprestimo</th>
         <th>Data Devolução</th>
         <th>Contato</th>
@@ -41,10 +41,10 @@
 
     </thead>
     <tbody >
-    {% for i in coisas %}
+    {% for i in object_list %}
         <tr>
 
-            <td><a href="{% url 'atualizar_coisa' i.pk %}"> {{ i.item }} </a> </td>
+            <td><a href="{% url 'atualizar_coisa' i.id %}"> {{ i.item }} </a> </td>
             <td> {{ i.data_emprestimo  }} </td>
             <td > {{ i.data_devolucao   }} </td>
             <td> {{ i.contato_amigo | phone2numeric }}</td>

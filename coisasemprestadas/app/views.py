@@ -60,12 +60,18 @@ def deslogar_usuario(request):
     return redirect('login_usuario')
 
 
-class CoisasListView(LoginRequiredMixin, ListView):
+class UserObjectsMixin:
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(usuario=self.request.user)
+
+
+class CoisasListView(LoginRequiredMixin, UserObjectsMixin, ListView):
     # redireciona o usuario não autenticado para url login, difinida anteriormente como String vazia ''
     login_url = ''
     redirect_field_name = 'redirect_to'
     model = Coisa
-    context_object_name = "coisas"
 
 
 class CoisaCreateView(LoginRequiredMixin, CreateView):
@@ -78,6 +84,12 @@ class CoisaCreateView(LoginRequiredMixin, CreateView):
         'data_devolucao',
         'contato_amigo',
     ]
+
+    def form_valid(self, form):
+        coisa = form.save(commit=False)
+        coisa.usuario = self.request.user
+        coisa.save()
+        return super().form_valid(form)
 
 
 class CoisaUpdateView(LoginRequiredMixin, UpdateView):
@@ -92,13 +104,3 @@ class CoisaUpdateView(LoginRequiredMixin, UpdateView):
         'retorno'
     ]
     template_name_suffix = '_update_form'
-
-
-def listar_coisas_id(request, id):
-    coisa = coisas_service.listar_coisas_id(id)
-    return render(request, 'app/coisa_list.html', {'coisa': coisa})
-
-
-def listar_coisas(request, usuario):
-    coisa = Coisa.objects.filter(usuario=usuario).all()
-    return render(request, 'app/coisa_list.html', {'coisa': coisa})

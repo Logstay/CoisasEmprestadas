@@ -16,8 +16,6 @@ urlpatterns = [
 
     path('listar', CoisasListView.as_view(), name='listar_coisa'),
 
-    path('listar/<int:id>', listar_coisas_id, name='listar_coisa_id'),
-
     path('atualizar_coisa/<int:pk>/', CoisaUpdateView.as_view(model=Coisa, success_url="/listar"),
          name='atualizar_coisa'),
 
