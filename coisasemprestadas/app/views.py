@@ -78,7 +78,14 @@ class CoisaCreateView(LoginRequiredMixin, CreateView):
         'data_devolucao',
         'contato_amigo',
     ]
-
+    
+    def form_valid(self, form):
+        coisa = form.save(commit=False)
+        coisa.usuario = self.request.user
+        coisa.save()
+        
+        return supet().form_valid(form)
+        
 
 class CoisaUpdateView(LoginRequiredMixin, UpdateView):
     login_url = ''
