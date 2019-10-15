@@ -3,7 +3,7 @@
 Projeto CoisasEmprestadas, você nunca esquecerá.!
 
 ## Versão
-para mais informações das versões observar requemirets.txt.
+para mais informações das versões observar requerements.txt.
 
 * Python 3.6.0
 * Django 2.2.5
