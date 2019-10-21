@@ -8,7 +8,6 @@ para mais informações das versões observar requerements.txt.
 * Python 3.6.0
 * Django 2.2.5
 * Virtualenv 16.7.5
-* python-decouple 3.1
 * mysqlclient 1.4.4
 
 
