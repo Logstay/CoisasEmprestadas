@@ -80,12 +80,9 @@ WSGI_APPLICATION = 'coisasemprestadas.wsgi.application'
 # FIXME : LEMBRAR DE ENCAPSULAR DADOS DO BANCO NO OUTRO PROJETO
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'coisas_emprestadas',
-        'USER': 'root',
-        'PASSWORD': 'K@i1712814',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        
     }
 }
 
