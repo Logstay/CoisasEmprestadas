@@ -1,7 +1,6 @@
 from django.db import models
 # chamado de autenticação builtin Django
 from django.contrib.auth.models import User
-from django.urls import reverse_lazy
 
 
 # class a ser usada no ORM que será criada no BancodeDados

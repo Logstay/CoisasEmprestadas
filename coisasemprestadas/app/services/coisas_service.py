@@ -1,5 +1,4 @@
 from ..models import Coisa
-from django.db import connection
 
 ''' metodo service que acessa diretamente o BD '''
 

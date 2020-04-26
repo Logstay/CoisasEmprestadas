@@ -1,11 +1,4 @@
-from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
-from django.views import generic
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .services import coisas_service
-from .forms import CoisasForm
 from .entidades.Coisa import Coisa
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
@@ -14,7 +7,7 @@ from django.views.generic.list import ListView
 from .models import Coisa
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # TODO: implantar no outro projeto CBV E AUTH
